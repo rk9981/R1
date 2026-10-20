@@ -1,0 +1,601 @@
+import { ToolDefinition } from '../types';
+
+export const TOOLS_CATEGORIES = [
+  { id: 'all', label: 'All 50 Tools', icon: 'Sparkles', count: 50 },
+  { id: 'pdf', label: 'PDF & Documents', icon: 'FileText', count: 10 },
+  { id: 'image', label: 'Image & Graphic', icon: 'Image', count: 10 },
+  { id: 'media', label: 'Media & Video', icon: 'Video', count: 7 },
+  { id: 'excel', label: 'Excel & Data', icon: 'Table', count: 8 },
+  { id: 'security', label: 'Security & Web', icon: 'ShieldCheck', count: 8 },
+  { id: 'text', label: 'Text & Writing', icon: 'Type', count: 7 },
+] as const;
+
+export const TOOLS_DATA: ToolDefinition[] = [
+  // --- 1. PDF & Documents (10 tools) ---
+  {
+    id: 'image-to-pdf',
+    name: 'Image to PDF Converter',
+    hindiName: 'फोटो से पीडीएफ बनाएँ',
+    category: 'pdf',
+    description: 'Convert JPG, PNG, WEBP images into high quality downloadable PDF documents.',
+    badge: 'HOT',
+    color: 'from-rose-500 to-red-600',
+    bgLight: 'bg-rose-50 border-rose-200 text-rose-700',
+    iconName: 'FileImage',
+    tags: ['image', 'pdf', 'convert', 'photo', 'doc']
+  },
+  {
+    id: 'pdf-to-word',
+    name: 'PDF to Word Converter',
+    hindiName: 'पीडीएफ से वर्ड डॉक्यूमेंट',
+    category: 'pdf',
+    description: 'Extract text, tables, and content from PDF files into editable Word (.docx / .doc) format.',
+    badge: 'POPULAR',
+    color: 'from-blue-600 to-indigo-700',
+    bgLight: 'bg-blue-50 border-blue-200 text-blue-700',
+    iconName: 'FileText',
+    tags: ['pdf', 'word', 'doc', 'extract', 'convert']
+  },
+  {
+    id: 'text-to-pdf',
+    name: 'Text & Note to PDF',
+    hindiName: 'टेक्स्ट से पीडीएफ',
+    category: 'pdf',
+    description: 'Turn formatted text, notes, and code snippets into crisp, printable PDF documents.',
+    color: 'from-amber-500 to-orange-600',
+    bgLight: 'bg-amber-50 border-amber-200 text-amber-700',
+    iconName: 'FileSignature',
+    tags: ['text', 'pdf', 'notes', 'generator']
+  },
+  {
+    id: 'pdf-merger',
+    name: 'PDF Combiner & Merger',
+    hindiName: 'पीडीएफ जोड़ें',
+    category: 'pdf',
+    description: 'Combine multiple document pages and texts into one unified PDF book.',
+    badge: 'FAST',
+    color: 'from-emerald-500 to-teal-700',
+    bgLight: 'bg-emerald-50 border-emerald-200 text-emerald-700',
+    iconName: 'Files',
+    tags: ['merge', 'combine', 'pdf', 'pages']
+  },
+  {
+    id: 'pdf-watermark',
+    name: 'PDF Watermark Studio',
+    hindiName: 'वाटरमार्क लगाएं',
+    category: 'pdf',
+    description: 'Add confidential, stamp, or custom copyright text watermarks over document previews.',
+    color: 'from-purple-600 to-pink-600',
+    bgLight: 'bg-purple-50 border-purple-200 text-purple-700',
+    iconName: 'Stamp',
+    tags: ['watermark', 'stamp', 'security', 'pdf']
+  },
+  {
+    id: 'invoice-pdf-maker',
+    name: 'Invoice & Bill PDF Maker',
+    hindiName: 'बिल और इनवॉइस जनरेटर',
+    category: 'pdf',
+    description: 'Create professional business invoices with auto-tax, discounts, and real PDF download.',
+    badge: 'PRO',
+    color: 'from-cyan-600 to-blue-600',
+    bgLight: 'bg-cyan-50 border-cyan-200 text-cyan-700',
+    iconName: 'Receipt',
+    tags: ['invoice', 'bill', 'receipt', 'business', 'pdf']
+  },
+  {
+    id: 'certificate-maker',
+    name: 'Certificate & Award Maker',
+    hindiName: 'सर्टिफिकेट बनाएं',
+    category: 'pdf',
+    description: 'Design elegant certificates of completion, appreciation, or sports awards and export to PDF.',
+    badge: 'NEW',
+    color: 'from-yellow-500 to-amber-600',
+    bgLight: 'bg-yellow-50 border-yellow-200 text-yellow-800',
+    iconName: 'Award',
+    tags: ['certificate', 'award', 'diploma', 'pdf']
+  },
+  {
+    id: 'pdf-page-counter',
+    name: 'PDF & Doc Inspector',
+    hindiName: 'पीडीएफ पेज व साइज जांचें',
+    category: 'pdf',
+    description: 'Analyze page dimensions, file size, character counts, and document metadata.',
+    color: 'from-slate-600 to-gray-800',
+    bgLight: 'bg-slate-50 border-slate-200 text-slate-700',
+    iconName: 'Search',
+    tags: ['inspect', 'counter', 'metadata', 'pdf']
+  },
+  {
+    id: 'markdown-to-pdf',
+    name: 'Markdown to PDF / HTML',
+    hindiName: 'मार्कडाउन से पीडीएफ',
+    category: 'pdf',
+    description: 'Write Markdown with real-time styled preview and 1-click export to printable PDF/HTML.',
+    color: 'from-indigo-500 to-violet-700',
+    bgLight: 'bg-indigo-50 border-indigo-200 text-indigo-700',
+    iconName: 'Code',
+    tags: ['markdown', 'html', 'pdf', 'docs']
+  },
+  {
+    id: 'resume-builder',
+    name: 'Quick CV / Resume Generator',
+    hindiName: 'बायोडाटा / रेज्यूमे मेकर',
+    category: 'pdf',
+    description: 'Fill in your experience, skills, and education to generate a polished job-ready resume PDF.',
+    badge: 'POPULAR',
+    color: 'from-teal-500 to-emerald-600',
+    bgLight: 'bg-teal-50 border-teal-200 text-teal-700',
+    iconName: 'Briefcase',
+    tags: ['resume', 'cv', 'job', 'pdf']
+  },
+
+  // --- 2. Image & Graphic Tools (10 tools) ---
+  {
+    id: 'image-compressor',
+    name: 'Smart Image Compressor',
+    hindiName: 'इमेज साइज कम करें',
+    category: 'image',
+    description: 'Compress JPG, PNG, and WebP images by up to 90% without visible quality loss.',
+    badge: 'POPULAR',
+    color: 'from-fuchsia-600 to-pink-600',
+    bgLight: 'bg-fuchsia-50 border-fuchsia-200 text-fuchsia-700',
+    iconName: 'Minimize2',
+    tags: ['compress', 'reduce', 'mb', 'kb', 'image']
+  },
+  {
+    id: 'image-resizer',
+    name: 'Image Resizer & Scaler',
+    hindiName: 'फोटो रीसाइज करें',
+    category: 'image',
+    description: 'Resize photos to exact pixel width & height with aspect ratio lock and social presets.',
+    badge: 'FAST',
+    color: 'from-violet-600 to-purple-700',
+    bgLight: 'bg-violet-50 border-violet-200 text-violet-700',
+    iconName: 'Scaling',
+    tags: ['resize', 'dimension', 'scale', 'pixels']
+  },
+  {
+    id: 'image-filter-studio',
+    name: 'Image Effects & Filter Studio',
+    hindiName: 'फोटो फिल्टर व इफेक्ट्स',
+    category: 'image',
+    description: 'Adjust brightness, contrast, blur, grayscale, sepia, invert, and hue with instant download.',
+    badge: 'NEW',
+    color: 'from-amber-500 to-pink-500',
+    bgLight: 'bg-pink-50 border-pink-200 text-pink-700',
+    iconName: 'Sliders',
+    tags: ['filter', 'brightness', 'contrast', 'effects']
+  },
+  {
+    id: 'image-converter',
+    name: 'Image Format Converter',
+    hindiName: 'फोटो फॉर्मेट बदलें',
+    category: 'image',
+    description: 'Convert between PNG, JPG, WEBP, and BMP formats instantly inside your browser.',
+    color: 'from-sky-500 to-blue-600',
+    bgLight: 'bg-sky-50 border-sky-200 text-sky-700',
+    iconName: 'RefreshCw',
+    tags: ['format', 'convert', 'png', 'jpg', 'webp']
+  },
+  {
+    id: 'color-palette-extractor',
+    name: 'Image Color Palette Extractor',
+    hindiName: 'फोटो से कलर कोड निकालें',
+    category: 'image',
+    description: 'Upload any image to automatically extract hex color codes and dominant palettes.',
+    color: 'from-orange-500 to-amber-600',
+    bgLight: 'bg-orange-50 border-orange-200 text-orange-700',
+    iconName: 'Palette',
+    tags: ['palette', 'color', 'hex', 'extract']
+  },
+  {
+    id: 'meme-generator',
+    name: 'Viral Meme Creator',
+    hindiName: 'मीम जनरेटर',
+    category: 'image',
+    description: 'Add bold top and bottom impact text to images to create viral social media memes.',
+    badge: 'HOT',
+    color: 'from-yellow-400 to-amber-500',
+    bgLight: 'bg-yellow-50 border-yellow-200 text-yellow-800',
+    iconName: 'Smile',
+    tags: ['meme', 'funny', 'text', 'social']
+  },
+  {
+    id: 'image-to-base64',
+    name: 'Image to Base64 & URI',
+    hindiName: 'इमेज टू बेस64',
+    category: 'image',
+    description: 'Convert pictures into Data URI Base64 strings for CSS, HTML, and web apps.',
+    color: 'from-indigo-500 to-purple-600',
+    bgLight: 'bg-indigo-50 border-indigo-200 text-indigo-700',
+    iconName: 'Binary',
+    tags: ['base64', 'data-uri', 'code', 'image']
+  },
+  {
+    id: 'image-cropper',
+    name: 'Aspect Ratio Image Cropper',
+    hindiName: 'फोटो क्रॉप करें',
+    category: 'image',
+    description: 'Crop images to 1:1 Instagram, 16:9 YouTube Thumbnail, 9:16 Story, or 4:3 ratios.',
+    color: 'from-rose-500 to-orange-500',
+    bgLight: 'bg-rose-50 border-rose-200 text-rose-700',
+    iconName: 'Crop',
+    tags: ['crop', 'square', 'story', 'ratio']
+  },
+  {
+    id: 'image-rounded-corner',
+    name: 'Rounded Corners & Border Studio',
+    hindiName: 'गोल किनारे व बॉर्डर बनाएं',
+    category: 'image',
+    description: 'Add stylish border radius, drop shadows, and neon frames to your graphics.',
+    color: 'from-cyan-500 to-emerald-500',
+    bgLight: 'bg-cyan-50 border-cyan-200 text-cyan-700',
+    iconName: 'Square',
+    tags: ['border', 'rounded', 'radius', 'frame']
+  },
+  {
+    id: 'svg-viewer-converter',
+    name: 'SVG Code Viewer & PNG Exporter',
+    hindiName: 'एसवीजी टू पीएनजी कनवर्टर',
+    category: 'image',
+    description: 'Paste raw SVG vector code, inspect the preview, and download as crystal clear high-res PNG.',
+    color: 'from-lime-500 to-emerald-600',
+    bgLight: 'bg-lime-50 border-lime-200 text-lime-800',
+    iconName: 'FileCode',
+    tags: ['svg', 'vector', 'png', 'export']
+  },
+
+  // --- 3. Media & Video Downloader (7 tools) ---
+  {
+    id: 'video-downloader',
+    name: 'Universal Video Downloader & Grabber',
+    hindiName: 'ऑनलाइन वीडियो डाउनलोडर',
+    category: 'media',
+    description: 'Download video clips & audio from social links, direct URLs with multi-quality MP4/MP3 options.',
+    badge: 'HOT',
+    color: 'from-red-500 to-rose-600',
+    bgLight: 'bg-red-50 border-red-200 text-red-700',
+    iconName: 'DownloadCloud',
+    tags: ['video', 'downloader', 'mp4', 'reels', 'youtube', 'tiktok']
+  },
+  {
+    id: 'screen-recorder',
+    name: 'HD Browser Screen Recorder',
+    hindiName: 'स्क्रीन रिकॉर्डर',
+    category: 'media',
+    description: 'Record your desktop screen, browser tab, or app window with system audio & download WebM/MP4.',
+    badge: 'PRO',
+    color: 'from-purple-600 to-indigo-600',
+    bgLight: 'bg-purple-50 border-purple-200 text-purple-700',
+    iconName: 'MonitorPlay',
+    tags: ['screen', 'record', 'video', 'capture']
+  },
+  {
+    id: 'voice-recorder',
+    name: 'Microphone & Voice Note Recorder',
+    hindiName: 'आवाज रिकॉर्डर',
+    category: 'media',
+    description: 'Record crystal clear studio voice notes directly from your microphone with live audio visualizer.',
+    badge: 'FAST',
+    color: 'from-emerald-500 to-cyan-600',
+    bgLight: 'bg-emerald-50 border-emerald-200 text-emerald-700',
+    iconName: 'Mic',
+    tags: ['voice', 'audio', 'mic', 'recording']
+  },
+  {
+    id: 'audio-cutter',
+    name: 'Audio & MP3 Cutter / Trimmer',
+    hindiName: 'ऑडियो / गाना काटें',
+    category: 'media',
+    description: 'Trim your favorite songs, remove silence, set ringtone start/end points, and export audio.',
+    badge: 'POPULAR',
+    color: 'from-pink-500 to-rose-500',
+    bgLight: 'bg-pink-50 border-pink-200 text-pink-700',
+    iconName: 'Scissors',
+    tags: ['audio', 'trim', 'cut', 'ringtone', 'mp3']
+  },
+  {
+    id: 'text-to-speech',
+    name: 'Multi-Voice Text to Speech (TTS)',
+    hindiName: 'टेक्स्ट से आवाज बनाएं',
+    category: 'media',
+    description: 'Convert written text into natural spoken voices with pitch, speed, and language controls.',
+    color: 'from-blue-500 to-violet-600',
+    bgLight: 'bg-blue-50 border-blue-200 text-blue-700',
+    iconName: 'Volume2',
+    tags: ['tts', 'speech', 'voice', 'sound']
+  },
+  {
+    id: 'video-to-audio',
+    name: 'Video to MP3 Audio Extractor',
+    hindiName: 'वीडियो से ऑडियो निकालें',
+    category: 'media',
+    description: 'Extract background music, lectures, and speech from video files into pure audio tracks.',
+    color: 'from-amber-500 to-orange-600',
+    bgLight: 'bg-amber-50 border-amber-200 text-amber-700',
+    iconName: 'Music',
+    tags: ['extract', 'audio', 'soundtrack', 'video']
+  },
+  {
+    id: 'subtitle-srt-maker',
+    name: 'Subtitle & SRT Caption Maker',
+    hindiName: 'सबटाइटल SRT बनाएं',
+    category: 'media',
+    description: 'Generate timestamped `.srt` and `.vtt` subtitles for YouTube videos and reels.',
+    color: 'from-teal-600 to-blue-600',
+    bgLight: 'bg-teal-50 border-teal-200 text-teal-700',
+    iconName: 'Subtitles',
+    tags: ['subtitle', 'srt', 'captions', 'video']
+  },
+
+  // --- 4. Excel, Data & Converters (8 tools) ---
+  {
+    id: 'excel-spreadsheet',
+    name: 'Interactive Excel & Sheet Editor',
+    hindiName: 'एक्सेल और स्प्रेडशीट एडिटर',
+    category: 'excel',
+    description: 'Create, edit, formula-calculate tables and export directly to `.csv` or formatted data.',
+    badge: 'HOT',
+    color: 'from-emerald-600 to-teal-700',
+    bgLight: 'bg-emerald-50 border-emerald-200 text-emerald-800',
+    iconName: 'Table',
+    tags: ['excel', 'spreadsheet', 'csv', 'calc', 'rows']
+  },
+  {
+    id: 'csv-to-json',
+    name: 'CSV to JSON & JSON to CSV',
+    hindiName: 'सीएसवी से जेसन कनवर्टर',
+    category: 'excel',
+    description: 'Bidirectional instant conversion between CSV table columns and JSON objects.',
+    badge: 'FAST',
+    color: 'from-indigo-600 to-blue-700',
+    bgLight: 'bg-indigo-50 border-indigo-200 text-indigo-700',
+    iconName: 'ArrowLeftRight',
+    tags: ['csv', 'json', 'data', 'convert']
+  },
+  {
+    id: 'json-beautifier',
+    name: 'JSON Beautifier, Validator & Minifier',
+    hindiName: 'जेसन फॉरमेटर',
+    category: 'excel',
+    description: 'Format unreadable JSON with colored syntax tree, fix errors, and minify for production.',
+    color: 'from-cyan-600 to-teal-600',
+    bgLight: 'bg-cyan-50 border-cyan-200 text-cyan-700',
+    iconName: 'Braces',
+    tags: ['json', 'format', 'minify', 'beautify']
+  },
+  {
+    id: 'xml-to-json',
+    name: 'XML to JSON & Formatter',
+    hindiName: 'एक्सएमएल टू जेसन',
+    category: 'excel',
+    description: 'Parse legacy XML tags and schemas into modern clean nested JSON objects.',
+    color: 'from-amber-600 to-orange-700',
+    bgLight: 'bg-amber-50 border-amber-200 text-amber-700',
+    iconName: 'FileCode2',
+    tags: ['xml', 'json', 'parse', 'schema']
+  },
+  {
+    id: 'sql-query-formatter',
+    name: 'SQL Query Formatter & Beautifier',
+    hindiName: 'एसक्यूएल क्वेरी फॉरमेटर',
+    category: 'excel',
+    description: 'Auto-indent SQL SELECT, JOIN, WHERE statements and fix casing for database queries.',
+    color: 'from-blue-600 to-sky-700',
+    bgLight: 'bg-blue-50 border-blue-200 text-blue-700',
+    iconName: 'Database',
+    tags: ['sql', 'query', 'database', 'format']
+  },
+  {
+    id: 'unit-converter',
+    name: 'Universal Unit & Metric Converter',
+    hindiName: 'यूनिट कनवर्टर (मीटर, किलो, आदि)',
+    category: 'excel',
+    description: 'Convert lengths, weights, temperatures, data storage (GB, MB), and speeds in real-time.',
+    badge: 'POPULAR',
+    color: 'from-purple-600 to-pink-600',
+    bgLight: 'bg-purple-50 border-purple-200 text-purple-700',
+    iconName: 'Scale',
+    tags: ['unit', 'converter', 'metric', 'weight', 'length']
+  },
+  {
+    id: 'base64-text-codec',
+    name: 'Base64 Text Encoder & Decoder',
+    hindiName: 'बेस64 टेक्स्ट इनकोडर',
+    category: 'excel',
+    description: 'Encode plain strings to standard Base64 characters and decode obfuscated tokens.',
+    color: 'from-slate-700 to-gray-900',
+    bgLight: 'bg-slate-50 border-slate-200 text-slate-700',
+    iconName: 'Key',
+    tags: ['base64', 'encode', 'decode', 'string']
+  },
+  {
+    id: 'url-encoder-decoder',
+    name: 'URL Encoder & Parameter Parser',
+    hindiName: 'यूआरएल इनकोडर / डिकोडर',
+    category: 'excel',
+    description: 'Encode special URI characters (`%20`, `&`) and break down query strings into tables.',
+    color: 'from-violet-600 to-fuchsia-600',
+    bgLight: 'bg-violet-50 border-violet-200 text-violet-700',
+    iconName: 'Link',
+    tags: ['url', 'uri', 'params', 'encode', 'decode']
+  },
+
+  // --- 5. Security, Web & Developer (8 tools) ---
+  {
+    id: 'qr-code-generator',
+    name: 'Colorful QR Code Generator',
+    hindiName: 'क्यूआर कोड जनरेटर',
+    category: 'security',
+    description: 'Create custom colored QR codes for Website URLs, WiFi passwords, Phone numbers & UPI.',
+    badge: 'HOT',
+    color: 'from-purple-600 to-pink-500',
+    bgLight: 'bg-purple-50 border-purple-200 text-purple-700',
+    iconName: 'QrCode',
+    tags: ['qr', 'qrcode', 'wifi', 'upi', 'url']
+  },
+  {
+    id: 'qr-scanner',
+    name: 'QR & Barcode Scanner Studio',
+    hindiName: 'क्यूआर कोड स्कैनर',
+    category: 'security',
+    description: 'Scan QR codes from saved images or live webcam camera feed with 1-click clipboard copy.',
+    badge: 'FAST',
+    color: 'from-teal-500 to-emerald-600',
+    bgLight: 'bg-teal-50 border-teal-200 text-teal-700',
+    iconName: 'ScanLine',
+    tags: ['scanner', 'camera', 'barcode', 'qr']
+  },
+  {
+    id: 'password-generator',
+    name: 'Strong Password Generator & Vault',
+    hindiName: 'मजबूत पासवर्ड जनरेटर',
+    category: 'security',
+    description: 'Generate high-entropy, uncrackable passwords with custom lengths and symbol toggles.',
+    badge: 'POPULAR',
+    color: 'from-emerald-600 to-teal-700',
+    bgLight: 'bg-emerald-50 border-emerald-200 text-emerald-700',
+    iconName: 'Shield',
+    tags: ['password', 'secure', 'generator', 'pin']
+  },
+  {
+    id: 'password-strength-checker',
+    name: 'Password Strength & Breach Meter',
+    hindiName: 'पासवर्ड सुरक्षा जांच',
+    category: 'security',
+    description: 'Test your passwords against common dictionaries, brute-force estimates, and vulnerability checks.',
+    color: 'from-amber-500 to-red-600',
+    bgLight: 'bg-amber-50 border-amber-200 text-amber-700',
+    iconName: 'ShieldAlert',
+    tags: ['security', 'audit', 'strength', 'bruteforce']
+  },
+  {
+    id: 'hash-generator',
+    name: 'Crypto Hash Generator (SHA256/MD5)',
+    hindiName: 'हैश कोड जनरेटर',
+    category: 'security',
+    description: 'Calculate cryptographic hashes including SHA-256, SHA-512, and SHA-1 using WebCrypto API.',
+    color: 'from-blue-600 to-indigo-700',
+    bgLight: 'bg-blue-50 border-blue-200 text-blue-700',
+    iconName: 'Fingerprint',
+    tags: ['sha256', 'hash', 'crypto', 'sha512']
+  },
+  {
+    id: 'uuid-generator',
+    name: 'UUID / GUID Bulk Generator',
+    hindiName: 'यूआईडी (UUID v4) जनरेटर',
+    category: 'security',
+    description: 'Generate cryptographically random UUID v4 identifiers in bulk with 1-click copy.',
+    color: 'from-fuchsia-600 to-purple-700',
+    bgLight: 'bg-fuchsia-50 border-fuchsia-200 text-fuchsia-700',
+    iconName: 'Cpu',
+    tags: ['uuid', 'guid', 'unique', 'id']
+  },
+  {
+    id: 'css-gradient-maker',
+    name: 'Vibrant CSS Gradient Generator',
+    hindiName: 'कलर ग्रेडिएंट बनाएं',
+    category: 'security',
+    description: 'Design beautiful multi-stop linear and radial CSS gradients with 1-click CSS code copy.',
+    badge: 'NEW',
+    color: 'from-rose-500 via-purple-500 to-cyan-500',
+    bgLight: 'bg-purple-50 border-purple-200 text-purple-700',
+    iconName: 'Sparkles',
+    tags: ['gradient', 'css', 'color', 'design']
+  },
+  {
+    id: 'http-status-lookup',
+    name: 'HTTP Status Code & API Tester',
+    hindiName: 'एचटीटीपी स्टेटस कोड व एपीआई',
+    category: 'security',
+    description: 'Instant lookup for all 200, 300, 400, and 500 status codes plus live REST API probe.',
+    color: 'from-cyan-600 to-blue-700',
+    bgLight: 'bg-cyan-50 border-cyan-200 text-cyan-700',
+    iconName: 'Globe',
+    tags: ['http', 'api', 'rest', 'status', 'curl']
+  },
+
+  // --- 6. Text, Writing & Calculators (7 tools) ---
+  {
+    id: 'word-character-counter',
+    name: 'Word, Character & Reading Counter',
+    hindiName: 'शब्द व अक्षर गिनने का टूल',
+    category: 'text',
+    description: 'Count words, characters, sentences, paragraphs, and estimate reading/speaking minutes.',
+    badge: 'POPULAR',
+    color: 'from-blue-600 to-cyan-600',
+    bgLight: 'bg-blue-50 border-blue-200 text-blue-700',
+    iconName: 'Type',
+    tags: ['word', 'character', 'reading-time', 'count']
+  },
+  {
+    id: 'case-converter',
+    name: 'Text Case Converter & Capitalizer',
+    hindiName: 'केस कनवर्टर (बड़ा / छोटा अक्षर)',
+    category: 'text',
+    description: 'Switch between UPPERCASE, lowercase, Title Case, camelCase, snake_case, and kebab-case.',
+    color: 'from-emerald-500 to-teal-600',
+    bgLight: 'bg-emerald-50 border-emerald-200 text-emerald-700',
+    iconName: 'AlignLeft',
+    tags: ['uppercase', 'lowercase', 'camelcase', 'format']
+  },
+  {
+    id: 'text-diff-checker',
+    name: 'Text Comparison & Diff Checker',
+    hindiName: 'दो टेक्स्ट की तुलना करें',
+    category: 'text',
+    description: 'Compare two text blocks side-by-side with color-coded highlighting of additions and deletions.',
+    badge: 'FAST',
+    color: 'from-violet-600 to-purple-600',
+    bgLight: 'bg-violet-50 border-violet-200 text-violet-700',
+    iconName: 'GitCompare',
+    tags: ['diff', 'compare', 'difference', 'text']
+  },
+  {
+    id: 'fake-data-generator',
+    name: 'Dummy Person & Test Data Generator',
+    hindiName: 'डमी टेस्ट डेटा जनरेटर',
+    category: 'text',
+    description: 'Generate mock Indian/International names, emails, addresses, phones, and credit card numbers.',
+    badge: 'NEW',
+    color: 'from-amber-500 to-orange-600',
+    bgLight: 'bg-amber-50 border-amber-200 text-amber-700',
+    iconName: 'UserCheck',
+    tags: ['fake', 'dummy', 'mock', 'persona', 'test']
+  },
+  {
+    id: 'age-date-calculator',
+    name: 'Exact Age & Date Difference Calculator',
+    hindiName: 'सटीक उम्र व तारीख कैलकुलेटर',
+    category: 'text',
+    description: 'Calculate your exact age down to years, months, days, hours, and next birthday countdown.',
+    badge: 'HOT',
+    color: 'from-pink-500 to-rose-600',
+    bgLight: 'bg-pink-50 border-pink-200 text-pink-700',
+    iconName: 'Calendar',
+    tags: ['age', 'birthday', 'date', 'calculator']
+  },
+  {
+    id: 'loan-emi-calculator',
+    name: 'Loan EMI & Financial Calculator',
+    hindiName: 'लोन ईएमआई कैलकुलेटर',
+    category: 'text',
+    description: 'Calculate monthly home, car, or personal loan EMI, total interest, and interactive breakdown.',
+    badge: 'PRO',
+    color: 'from-green-600 to-emerald-700',
+    bgLight: 'bg-green-50 border-green-200 text-green-700',
+    iconName: 'DollarSign',
+    tags: ['emi', 'loan', 'finance', 'interest', 'money']
+  },
+  {
+    id: 'tip-bill-splitter',
+    name: 'Smart Bill & Restaurant Tip Splitter',
+    hindiName: 'बिल शेयर व टिप कैलकुलेटर',
+    category: 'text',
+    description: 'Calculate tip percentages, split restaurant bills equally among friends with tax adjustments.',
+    color: 'from-yellow-500 to-amber-600',
+    bgLight: 'bg-yellow-50 border-yellow-200 text-yellow-800',
+    iconName: 'PieChart',
+    tags: ['split', 'bill', 'tip', 'friends', 'calculator']
+  }
+];

@@ -1,0 +1,6 @@
+{
+  "name": "MegaTools 50+ All-in-One Suite",
+  "description": "Colorful utility suite of 50+ tools: Image to PDF, PDF to Word, Excel tools, Video Downloader, Audio Trimmer, and more with login & register.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
